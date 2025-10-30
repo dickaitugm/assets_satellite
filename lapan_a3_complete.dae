@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <contributor>
+      <author>LAPAN</author>
+      <authoring_tool>Three.js Converter</authoring_tool>
+    </contributor>
+    <created>2024-01-01T00:00:00Z</created>
+    <modified>2024-01-01T00:00:00Z</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  
+  <!-- Materials -->
+  <library_materials>
+    <material id="BodyMaterial" name="BodyMaterial">
+      <instance_effect url="#BodyMaterial-effect"/>
+    </material>
+    <material id="SolarPanelMaterial" name="SolarPanelMaterial">
+      <instance_effect url="#SolarPanelMaterial-effect"/>
+    </material>
+    <material id="AntennaMaterial" name="AntennaMaterial">
+      <instance_effect url="#AntennaMaterial-effect"/>
+    </material>
+    <material id="SensorMaterial" name="SensorMaterial">
+      <instance_effect url="#SensorMaterial-effect"/>
+    </material>
+    <material id="ThrusterMaterial" name="ThrusterMaterial">
+      <instance_effect url="#ThrusterMaterial-effect"/>
+    </material>
+    <material id="RadiatorMaterial" name="RadiatorMaterial">
+      <instance_effect url="#RadiatorMaterial-effect"/>
+    </material>
+  </library_materials>
+  
+  <library_effects>
+    <effect id="BodyMaterial-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <phong>
+            <diffuse>
+              <color>0.266667 0.266667 0.266667 1</color>
+            </diffuse>
+            <specular>
+              <color>0.5 0.5 0.5 1</color>
+            </specular>
+            <shininess>
+              <float>30</float>
+            </shininess>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="SolarPanelMaterial-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <phong>
+            <diffuse>
+              <color>0.184314 0.309804 0.309804 1</color>
+            </diffuse>
+            <specular>
+              <color>0.7 0.7 0.7 1</color>
+            </specular>
+            <shininess>
+              <float>80</float>
+            </shininess>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="AntennaMaterial-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <phong>
+            <diffuse>
+              <color>0.533333 0.533333 0.533333 1</color>
+            </diffuse>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="SensorMaterial-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <phong>
+            <diffuse>
+              <color>0 0 0 1</color>
+            </diffuse>
+            <specular>
+              <color>0.9 0.9 0.9 1</color>
+            </specular>
+            <shininess>
+              <float>100</float>
+            </shininess>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="ThrusterMaterial-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <phong>
+            <diffuse>
+              <color>0.545098 0.270588 0.0745098 1</color>
+            </diffuse>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="RadiatorMaterial-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <phong>
+            <diffuse>
+              <color>0.439216 0.501961 0.564706 1</color>
+            </diffuse>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+
+  <!-- Geometries -->
+  <library_geometries>
+    <!-- Satellite Body (Box: 677x960x574 mm) -->
+    <geometry id="SatelliteBody-geometry" name="SatelliteBody">
+      <mesh>
+        <source id="SatelliteBody-positions">
+          <float_array id="SatelliteBody-positions-array" count="24">
+            -0.3385 0.48 0.287 0.3385 0.48 0.287 -0.3385 -0.48 0.287 0.3385 -0.48 0.287 -0.3385 0.48 -0.287 0.3385 0.48 -0.287 -0.3385 -0.48 -0.287 0.3385 -0.48 -0.287
+          </float_array>
+          <technique_common>
+            <accessor source="#SatelliteBody-positions-array" count="8" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="SatelliteBody-vertices">
+          <input semantic="POSITION" source="#SatelliteBody-positions"/>
+        </vertices>
+        <triangles material="BodyMaterial" count="12">
+          <input semantic="VERTEX" source="#SatelliteBody-vertices" offset="0"/>
+          <p>0 1 2 2 1 3 4 5 6 6 5 7 0 2 4 4 2 6 1 5 3 3 5 7 0 4 1 1 4 5 2 3 6 6 3 7</p>
+        </triangles>
+      </mesh>
+    </geometry>
+
+    <!-- Solar Panel (Box: 50x800x600 mm) -->
+    <geometry id="SolarPanel-geometry" name="SolarPanel">
+      <mesh>
+        <source id="SolarPanel-positions">
+          <float_array id="SolarPanel-positions-array" count="24">
+            -0.025 0.4 0.3 0.025 0.4 0.3 -0.025 -0.4 0.3 0.025 -0.4 0.3 -0.025 0.4 -0.3 0.025 0.4 -0.3 -0.025 -0.4 -0.3 0.025 -0.4 -0.3
+          </float_array>
+          <technique_common>
+            <accessor source="#SolarPanel-positions-array" count="8" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="SolarPanel-vertices">
+          <input semantic="POSITION" source="#SolarPanel-positions"/>
+        </vertices>
+        <triangles material="SolarPanelMaterial" count="12">
+          <input semantic="VERTEX" source="#SolarPanel-vertices" offset="0"/>
+          <p>0 1 2 2 1 3 4 5 6 6 5 7 0 2 4 4 2 6 1 5 3 3 5 7 0 4 1 1 4 5 2 3 6 6 3 7</p>
+        </triangles>
+      </mesh>
+    </geometry>
+
+    <!-- Antenna (Cylinder: radius 20mm, height 200mm) -->
+    <geometry id="Antenna-geometry" name="Antenna">
+      <mesh>
+        <source id="Antenna-positions">
+          <float_array id="Antenna-positions-array" count="96">
+            0.02 0.05 0 0.02 -0.05 0 0.014142135623730952 0.05 0.014142135623730949 0.014142135623730952 -0.05 0.014142135623730949 1.2246467991473532e-18 0.05 0.02 1.2246467991473532e-18 -0.05 0.02 -0.014142135623730949 0.05 0.014142135623730952 -0.014142135623730949 -0.05 0.014142135623730952 -0.02 0.05 2.4492935982947064e-18 -0.02 -0.05 2.4492935982947064e-18 -0.014142135623730954 0.05 -0.014142135623730949 -0.014142135623730954 -0.05 -0.014142135623730949 -3.673940397442059e-18 0.05 -0.02 -3.673940397442059e-18 -0.05 -0.02 0.014142135623730947 0.05 -0.014142135623730954 0.014142135623730947 -0.05 -0.014142135623730954 0.02 0.05 -4.898587196589413e-18 0.02 -0.05 -4.898587196589413e-18
+          </float_array>
+          <technique_common>
+            <accessor source="#Antenna-positions-array" count="32" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Antenna-vertices">
+          <input semantic="POSITION" source="#Antenna-positions"/>
+        </vertices>
+        <triangles material="AntennaMaterial" count="32">
+          <input semantic="VERTEX" source="#Antenna-vertices" offset="0"/>
+          <p>0 2 1 1 2 3 2 4 3 3 4 5 4 6 5 5 6 7 6 8 7 7 8 9 8 10 9 9 10 11 10 12 11 11 12 13 12 14 13 13 14 15 14 16 15 15 16 17</p>
+        </triangles>
+      </mesh>
+    </geometry>
+
+    <!-- Sensor (Cone: radius 80-100mm, height 50mm) -->
+    <geometry id="Sensor-geometry" name="Sensor">
+      <mesh>
+        <source id="Sensor-positions">
+          <float_array id="Sensor-positions-array" count="96">
+            0 -0.0125 0 0 0.0125 0 0.08 -0.0125 0 0.1 0.0125 0 0.07391036260090295 -0.0125 0.030614674589207184 0.09238795325112868 0.0125 0.03826834323650898 0.05656854249492381 -0.0125 0.056568542494923796 0.07071067811865477 0.0125 0.07071067811865475 0.030614674589207188 -0.0125 0.07391036260090295 0.03826834323650899 0.0125 0.09238795325112868 4.898587196589413e-18 -0.0125 0.08 6.123233995736766e-18 0.0125 0.1 -0.030614674589207178 -0.0125 0.07391036260090295 -0.038268343236508975 0.0125 0.09238795325112868 -0.056568542494923796 -0.0125 0.05656854249492381 -0.07071067811865475 0.0125 0.07071067811865477 -0.07391036260090295 -0.0125 0.03061467458920719 -0.09238795325112868 0.0125 0.03826834323650899 -0.08 -0.0125 9.797174393178826e-18 -0.1 0.0125 1.2246467991473533e-17 -0.07391036260090295 -0.0125 -0.030614674589207174 -0.0923879532511287 0.0125 -0.03826834323650897 -0.05656854249492382 -0.0125 -0.056568542494923796 -0.07071067811865477 0.0125 -0.07071067811865475 -0.030614674589207226 -0.0125 -0.07391036260090292 -0.03826834323650904 0.0125 -0.09238795325112865 -1.4695761589768237e-17 -0.0125 -0.08 -1.8369701987210297e-17 0.0125 -0.1 0.030614674589207202 -0.0125 -0.07391036260090293 0.038268343236509 0.0125 -0.09238795325112867 0.05656854249492379 -0.0125 -0.05656854249492382 0.07071067811865474 0.0125 -0.07071067811865477 0.07391036260090292 -0.0125 -0.030614674589207233 0.09238795325112865 0.0125 -0.038268343236509045 0.08 -0.0125 -1.959434878635765e-17 0.1 0.0125 -2.4492935982947065e-17
+          </float_array>
+          <technique_common>
+            <accessor source="#Sensor-positions-array" count="32" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Sensor-vertices">
+          <input semantic="POSITION" source="#Sensor-positions"/>
+        </vertices>
+        <triangles material="SensorMaterial" count="32">
+          <input semantic="VERTEX" source="#Sensor-vertices" offset="0"/>
+          <p>0 4 2 1 3 5 2 4 3 3 4 5 0 6 4 1 5 7 4 6 5 5 6 7 0 8 6 1 7 9 6 8 7 7 8 9 0 10 8 1 9 11 8 10 9 9 10 11 0 12 10 1 11 13 10 12 11 11 12 13 0 14 12 1 13 15 12 14 13 13 14 15 0 16 14 1 15 17 14 16 15 15 16 17 0 18 16 1 17 19 16 18 17 17 18 19 0 20 18 1 19 21 18 20 19 19 20 21 0 22 20 1 21 23 20 22 21 21 22 23 0 24 22 1 23 25 22 24 23 23 24 25 0 26 24 1 25 27 24 26 25 25 26 27 0 28 26 1 27 29 26 28 27 27 28 29 0 30 28 1 29 31 28 30 29 29 30 31 0 32 30 1 31 33 30 32 31 31 32 33 0 2 32 1 33 3 32 2 33 33 2 3</p>
+        </triangles>
+      </mesh>
+    </geometry>
+
+    <!-- Thruster (Cone: radius 30-40mm, height 60mm) -->
+    <geometry id="Thruster-geometry" name="Thruster">
+      <mesh>
+        <source id="Thruster-positions">
+          <float_array id="Thruster-positions-array" count="96">
+            0 -0.015 0 0 0.015 0 0.03 -0.015 0 0.04 0.015 0 0.021213203435596427 -0.015 0.021213203435596423 0.028284271247461905 0.015 0.028284271247461898 1.8369701987210296e-18 -0.015 0.03 2.4492935982947064e-18 0.015 0.04 -0.021213203435596423 -0.015 0.021213203435596427 -0.028284271247461898 0.015 0.028284271247461905 -0.03 -0.015 3.673940397442059e-18 -0.04 0.015 4.898587196589413e-18 -0.02121320343559643 -0.015 -0.021213203435596423 -0.02828427124746191 0.015 -0.028284271247461898 -5.510910596163089e-18 -0.015 -0.03 -7.347880794884118e-18 0.015 -0.04 0.02121320343559642 -0.015 -0.02121320343559643 0.028284271247461894 0.015 -0.02828427124746191 0.03 -0.015 -7.347880794884118e-18 0.04 0.015 -9.797174393178826e-18
+          </float_array>
+          <technique_common>
+            <accessor source="#Thruster-positions-array" count="32" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Thruster-vertices">
+          <input semantic="POSITION" source="#Thruster-positions"/>
+        </vertices>
+        <triangles material="ThrusterMaterial" count="32">
+          <input semantic="VERTEX" source="#Thruster-vertices" offset="0"/>
+          <p>0 4 2 1 3 5 2 4 3 3 4 5 0 6 4 1 5 7 4 6 5 5 6 7 0 8 6 1 7 9 6 8 7 7 8 9 0 10 8 1 9 11 8 10 9 9 10 11 0 12 10 1 11 13 10 12 11 11 12 13 0 14 12 1 13 15 12 14 13 13 14 15 0 16 14 1 15 17 14 16 15 15 16 17 0 2 16 1 17 3 16 2 17 17 2 3</p>
+        </triangles>
+      </mesh>
+    </geometry>
+
+    <!-- Radiator (Box: 400x20x300 mm) -->
+    <geometry id="Radiator-geometry" name="Radiator">
+      <mesh>
+        <source id="Radiator-positions">
+          <float_array id="Radiator-positions-array" count="24">
+            -0.2 0.01 0.15 0.2 0.01 0.15 -0.2 -0.01 0.15 0.2 -0.01 0.15 -0.2 0.01 -0.15 0.2 0.01 -0.15 -0.2 -0.01 -0.15 0.2 -0.01 -0.15
+          </float_array>
+          <technique_common>
+            <accessor source="#Radiator-positions-array" count="8" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Radiator-vertices">
+          <input semantic="POSITION" source="#Radiator-positions"/>
+        </vertices>
+        <triangles material="RadiatorMaterial" count="12">
+          <input semantic="VERTEX" source="#Radiator-vertices" offset="0"/>
+          <p>0 1 2 2 1 3 4 5 6 6 5 7 0 2 4 4 2 6 1 5 3 3 5 7 0 4 1 1 4 5 2 3 6 6 3 7</p>
+        </triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+
+  <!-- Visual Scene -->
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="LAPAN-A3">
+      <!-- Main Satellite Body -->
+      <node id="SatelliteBody" name="Satellite_Body">
+        <translate>0 0 0</translate>
+        <instance_geometry url="#SatelliteBody-geometry">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="BodyMaterial" target="#BodyMaterial"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+
+      <!-- Left Solar Panel -->
+      <node id="LeftSolarPanel" name="Left_Solar_Panel">
+        <translate>-0.36 0 0</translate>
+        <instance_geometry url="#SolarPanel-geometry">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="SolarPanelMaterial" target="#SolarPanelMaterial"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+
+      <!-- Right Solar Panel -->
+      <node id="RightSolarPanel" name="Right_Solar_Panel">
+        <translate>0.36 0 0</translate>
+        <instance_geometry url="#SolarPanel-geometry">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="SolarPanelMaterial" target="#SolarPanelMaterial"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+
+      <!-- Main Antenna -->
+      <node id="MainAntenna" name="Main_Antenna">
+        <translate>0 0.58 0</translate>
+        <rotate>1 0 0 90</rotate>
+        <instance_geometry url="#Antenna-geometry">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="AntennaMaterial" target="#AntennaMaterial"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+
+      <!-- Communication Antenna -->
+      <node id="CommAntenna" name="Communication_Antenna">
+        <translate>0 0 0.387</translate>
+        <rotate>1 0 0 90</rotate>
+        <instance_geometry url="#Antenna-geometry">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="AntennaMaterial" target="#AntennaMaterial"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+
+      <!-- Main Sensor -->
+      <node id="MainSensor" name="Main_Sensor">
+        <translate>0 -0.2 0.312</translate>
+        <instance_geometry url="#Sensor-geometry">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="SensorMaterial" target="#SensorMaterial"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+
+      <!-- Rear Thruster -->
+      <node id="RearThruster" name="Rear_Thruster">
+        <translate>0 0 -0.337</translate>
+        <instance_geometry url="#Thruster-geometry">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="ThrusterMaterial" target="#ThrusterMaterial"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+
+      <!-- Top Radiator -->
+      <node id="TopRadiator" name="Top_Radiator">
+        <translate>0 0.49 0</translate>
+        <instance_geometry url="#Radiator-geometry">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="RadiatorMaterial" target="#RadiatorMaterial"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>
