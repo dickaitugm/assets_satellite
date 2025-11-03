@@ -14,6 +14,21 @@
         <material id="Material-Red" name="Red">
             <instance_effect url="#Effect-Red" />
         </material>
+        <material id="Material-Green" name="Green">
+            <instance_effect url="#Effect-Green" />
+        </material>
+        <material id="Material-Blue" name="Blue">
+            <instance_effect url="#Effect-Blue" />
+        </material>
+        <material id="Material-Yellow" name="Yellow">
+            <instance_effect url="#Effect-Yellow" />
+        </material>
+        <material id="Material-Cyan" name="Cyan">
+            <instance_effect url="#Effect-Cyan" />
+        </material>
+        <material id="Material-Magenta" name="Magenta">
+            <instance_effect url="#Effect-Magenta" />
+        </material>
     </library_materials>
     <library_effects>
         <effect id="Effect-Red" name="Red">
@@ -22,6 +37,91 @@
                     <phong>
                         <diffuse>
                             <color sid="diffuse_effect_rgb">0.8 0 0 1</color>
+                        </diffuse>
+                        <specular>
+                            <color sid="specular_effect_rgb">0.2 0.2 0.2 1</color>
+                        </specular>
+                        <shininess>
+                            <float sid="specular_effect_rgb">256</float>
+                        </shininess>
+                    </phong>
+                </technique>
+            </profile_COMMON>
+        </effect>
+        <effect id="Effect-Green" name="Green">
+            <profile_COMMON>
+                <technique sid="common">
+                    <phong>
+                        <diffuse>
+                            <color sid="diffuse_effect_rgb">0 0.8 0 1</color>
+                        </diffuse>
+                        <specular>
+                            <color sid="specular_effect_rgb">0.2 0.2 0.2 1</color>
+                        </specular>
+                        <shininess>
+                            <float sid="specular_effect_rgb">256</float>
+                        </shininess>
+                    </phong>
+                </technique>
+            </profile_COMMON>
+        </effect>
+        <effect id="Effect-Blue" name="Blue">
+            <profile_COMMON>
+                <technique sid="common">
+                    <phong>
+                        <diffuse>
+                            <color sid="diffuse_effect_rgb">0 0 0.8 1</color>
+                        </diffuse>
+                        <specular>
+                            <color sid="specular_effect_rgb">0.2 0.2 0.2 1</color>
+                        </specular>
+                        <shininess>
+                            <float sid="specular_effect_rgb">256</float>
+                        </shininess>
+                    </phong>
+                </technique>
+            </profile_COMMON>
+        </effect>
+        <effect id="Effect-Yellow" name="Yellow">
+            <profile_COMMON>
+                <technique sid="common">
+                    <phong>
+                        <diffuse>
+                            <color sid="diffuse_effect_rgb">0.8 0.8 0 1</color>
+                        </diffuse>
+                        <specular>
+                            <color sid="specular_effect_rgb">0.2 0.2 0.2 1</color>
+                        </specular>
+                        <shininess>
+                            <float sid="specular_effect_rgb">256</float>
+                        </shininess>
+                    </phong>
+                </technique>
+            </profile_COMMON>
+        </effect>
+        <effect id="Effect-Cyan" name="Cyan">
+            <profile_COMMON>
+                <technique sid="common">
+                    <phong>
+                        <diffuse>
+                            <color sid="diffuse_effect_rgb">0 0.8 0.8 1</color>
+                        </diffuse>
+                        <specular>
+                            <color sid="specular_effect_rgb">0.2 0.2 0.2 1</color>
+                        </specular>
+                        <shininess>
+                            <float sid="specular_effect_rgb">256</float>
+                        </shininess>
+                    </phong>
+                </technique>
+            </profile_COMMON>
+        </effect>
+        <effect id="Effect-Magenta" name="Magenta">
+            <profile_COMMON>
+                <technique sid="common">
+                    <phong>
+                        <diffuse>
+                            <color sid="diffuse_effect_rgb">0.8 0 0.8 1</color>
                         </diffuse>
                         <specular>
                             <color sid="specular_effect_rgb">0.2 0.2 0.2 1</color>
@@ -69,11 +169,41 @@
                 <vertices id="Geometry-mesh002-vertices">
                     <input semantic="POSITION" source="#Geometry-mesh002-positions" />
                 </vertices>
-                <triangles count="12" material="Material-Red">
+                <triangles count="2" material="Material-Red">
                     <input semantic="VERTEX" source="#Geometry-mesh002-vertices" offset="0" />
                     <input semantic="NORMAL" source="#Geometry-mesh002-normals" offset="1" />
                     <input semantic="TEXCOORD" source="#Geometry-mesh002-Texture" offset="2" set="0" />
-                    <p>4 0 0 7 0 1 5 0 2 6 0 3 5 0 2 7 0 1 7 1 1 4 1 4 3 1 5 0 1 6 3 1 5 4 1 4 6 2 3 7 2 1 2 2 7 3 2 5 2 2 7 7 2 1 5 3 8 6 3 3 1 3 9 2 3 7 1 3 9 6 3 3 4 4 10 5 4 8 0 4 11 1 4 9 0 4 11 5 4 8 0 5 12 1 5 13 3 5 5 2 5 7 3 5 5 1 5 13</p>
+                    <p>4 0 0 7 0 1 5 0 2 6 0 3 5 0 2 7 0 1</p>
+                </triangles>
+                <triangles count="2" material="Material-Green">
+                    <input semantic="VERTEX" source="#Geometry-mesh002-vertices" offset="0" />
+                    <input semantic="NORMAL" source="#Geometry-mesh002-normals" offset="1" />
+                    <input semantic="TEXCOORD" source="#Geometry-mesh002-Texture" offset="2" set="0" />
+                    <p>7 1 1 4 1 4 3 1 5 0 1 6 3 1 5 4 1 4</p>
+                </triangles>
+                <triangles count="2" material="Material-Blue">
+                    <input semantic="VERTEX" source="#Geometry-mesh002-vertices" offset="0" />
+                    <input semantic="NORMAL" source="#Geometry-mesh002-normals" offset="1" />
+                    <input semantic="TEXCOORD" source="#Geometry-mesh002-Texture" offset="2" set="0" />
+                    <p>6 2 3 7 2 1 2 2 7 3 2 5 2 2 7 7 2 1</p>
+                </triangles>
+                <triangles count="2" material="Material-Yellow">
+                    <input semantic="VERTEX" source="#Geometry-mesh002-vertices" offset="0" />
+                    <input semantic="NORMAL" source="#Geometry-mesh002-normals" offset="1" />
+                    <input semantic="TEXCOORD" source="#Geometry-mesh002-Texture" offset="2" set="0" />
+                    <p>5 3 8 6 3 3 1 3 9 2 3 7 1 3 9 6 3 3</p>
+                </triangles>
+                <triangles count="2" material="Material-Cyan">
+                    <input semantic="VERTEX" source="#Geometry-mesh002-vertices" offset="0" />
+                    <input semantic="NORMAL" source="#Geometry-mesh002-normals" offset="1" />
+                    <input semantic="TEXCOORD" source="#Geometry-mesh002-Texture" offset="2" set="0" />
+                    <p>4 4 10 5 4 8 0 4 11 1 4 9 0 4 11 5 4 8</p>
+                </triangles>
+                <triangles count="2" material="Material-Magenta">
+                    <input semantic="VERTEX" source="#Geometry-mesh002-vertices" offset="0" />
+                    <input semantic="NORMAL" source="#Geometry-mesh002-normals" offset="1" />
+                    <input semantic="TEXCOORD" source="#Geometry-mesh002-Texture" offset="2" set="0" />
+                    <p>0 5 12 1 5 13 3 5 5 2 5 7 3 5 5 1 5 13</p>
                 </triangles>
             </mesh>
         </geometry>
@@ -85,6 +215,11 @@
                     <bind_material>
                         <technique_common>
                             <instance_material symbol="Material-Red" target="#Material-Red" />
+                            <instance_material symbol="Material-Green" target="#Material-Green" />
+                            <instance_material symbol="Material-Blue" target="#Material-Blue" />
+                            <instance_material symbol="Material-Yellow" target="#Material-Yellow" />
+                            <instance_material symbol="Material-Cyan" target="#Material-Cyan" />
+                            <instance_material symbol="Material-Magenta" target="#Material-Magenta" />
                         </technique_common>
                     </bind_material>
                 </instance_geometry>
