@@ -11,11 +11,11 @@
 
   <library_images>
     <image id="Texture_PosX" name="Texture_PosX" init_from="posx.png"/>
-    <image id="Texture_NegX" name="Texture_NegX" init_from="negx.png"/>
-    <image id="Texture_PosY" name="Texture_PosY" init_from="posy.png"/>
-    <image id="Texture_NegY" name="Texture_NegY" init_from="negy.png"/>
-    <image id="Texture_PosZ" name="Texture_PosZ" init_from="posz.png"/>
-    <image id="Texture_NegZ" name="Texture_NegZ" init_from="negz.png"/>
+    <image id="Texture_NegX" name="Texture_NegX" init_from="posx.png"/>
+    <image id="Texture_PosY" name="Texture_PosY" init_from="posx.png"/>
+    <image id="Texture_NegY" name="Texture_NegY" init_from="posx.png"/>
+    <image id="Texture_PosZ" name="Texture_PosZ" init_from="posx.png"/>
+    <image id="Texture_NegZ" name="Texture_NegZ" init_from="posx.png"/>
   </library_images>
 
   <library_materials>
