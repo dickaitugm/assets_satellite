@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <contributor>
+      <authoring_tool>ChatGPT Labelled Box Generator</authoring_tool>
+    </contributor>
+    <created>2025-11-03T00:00:00Z</created>
+    <modified>2025-11-03T00:00:00Z</modified>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+
+  <library_images>
+    <image id="Texture_PosX" name="Texture_PosX" init_from="posx.png"/>
+    <image id="Texture_NegX" name="Texture_NegX" init_from="negx.png"/>
+    <image id="Texture_PosY" name="Texture_PosY" init_from="posy.png"/>
+    <image id="Texture_NegY" name="Texture_NegY" init_from="negy.png"/>
+    <image id="Texture_PosZ" name="Texture_PosZ" init_from="posz.png"/>
+    <image id="Texture_NegZ" name="Texture_NegZ" init_from="negz.png"/>
+  </library_images>
+
+  <library_materials>
+    <material id="Mat_PosX" name="Mat_PosX"><instance_effect url="#Fx_PosX"/></material>
+    <material id="Mat_NegX" name="Mat_NegX"><instance_effect url="#Fx_NegX"/></material>
+    <material id="Mat_PosY" name="Mat_PosY"><instance_effect url="#Fx_PosY"/></material>
+    <material id="Mat_NegY" name="Mat_NegY"><instance_effect url="#Fx_NegY"/></material>
+    <material id="Mat_PosZ" name="Mat_PosZ"><instance_effect url="#Fx_PosZ"/></material>
+    <material id="Mat_NegZ" name="Mat_NegZ"><instance_effect url="#Fx_NegZ"/></material>
+  </library_materials>
+
+  <library_effects>
+    <effect id="Fx_PosX"><profile_COMMON><technique sid="common"><phong><diffuse><texture texture="Texture_PosX" texcoord="UVSET0"/></diffuse></phong></technique></profile_COMMON></effect>
+    <effect id="Fx_NegX"><profile_COMMON><technique sid="common"><phong><diffuse><texture texture="Texture_NegX" texcoord="UVSET0"/></diffuse></phong></technique></profile_COMMON></effect>
+    <effect id="Fx_PosY"><profile_COMMON><technique sid="common"><phong><diffuse><texture texture="Texture_PosY" texcoord="UVSET0"/></diffuse></phong></technique></profile_COMMON></effect>
+    <effect id="Fx_NegY"><profile_COMMON><technique sid="common"><phong><diffuse><texture texture="Texture_NegY" texcoord="UVSET0"/></diffuse></phong></technique></profile_COMMON></effect>
+    <effect id="Fx_PosZ"><profile_COMMON><technique sid="common"><phong><diffuse><texture texture="Texture_PosZ" texcoord="UVSET0"/></diffuse></phong></technique></profile_COMMON></effect>
+    <effect id="Fx_NegZ"><profile_COMMON><technique sid="common"><phong><diffuse><texture texture="Texture_NegZ" texcoord="UVSET0"/></diffuse></phong></technique></profile_COMMON></effect>
+  </library_effects>
+
+  <library_geometries>
+    <geometry id="Box" name="LabeledBox">
+      <mesh>
+        <!-- Vertex positions -->
+        <source id="Box-positions">
+          <float_array id="Box-positions-array" count="24">
+            -0.5 -0.5 -0.5
+            -0.5  0.5 -0.5
+             0.5  0.5 -0.5
+             0.5 -0.5 -0.5
+            -0.5 -0.5  0.5
+            -0.5  0.5  0.5
+             0.5  0.5  0.5
+             0.5 -0.5  0.5
+          </float_array>
+          <technique_common>
+            <accessor source="#Box-positions-array" count="8" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+
+        <!-- Texture coordinates -->
+        <source id="Box-uv">
+          <float_array id="Box-uv-array" count="8">
+            0 0  1 0  1 1  0 1  0 0  1 0  1 1  0 1
+          </float_array>
+          <technique_common>
+            <accessor source="#Box-uv-array" count="8" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+
+        <vertices id="Box-vertices">
+          <input semantic="POSITION" source="#Box-positions"/>
+        </vertices>
+
+        <!-- Faces per axis -->
+        <!-- +X -->
+        <triangles count="2" material="Mat_PosX">
+          <input semantic="VERTEX" source="#Box-vertices" offset="0"/>
+          <input semantic="TEXCOORD" source="#Box-uv" offset="1" set="0"/>
+          <p>2 0 6 1 7 2 2 0 3 3 7 2</p>
+        </triangles>
+
+        <!-- -X -->
+        <triangles count="2" material="Mat_NegX">
+          <input semantic="VERTEX" source="#Box-vertices" offset="0"/>
+          <input semantic="TEXCOORD" source="#Box-uv" offset="1" set="0"/>
+          <p>0 0 1 1 5 2 0 0 4 3 5 2</p>
+        </triangles>
+
+        <!-- +Y -->
+        <triangles count="2" material="Mat_PosY">
+          <input semantic="VERTEX" source="#Box-vertices" offset="0"/>
+          <input semantic="TEXCOORD" source="#Box-uv" offset="1" set="0"/>
+          <p>1 0 2 1 6 2 1 0 5 3 6 2</p>
+        </triangles>
+
+        <!-- -Y -->
+        <triangles count="2" material="Mat_NegY">
+          <input semantic="VERTEX" source="#Box-vertices" offset="0"/>
+          <input semantic="TEXCOORD" source="#Box-uv" offset="1" set="0"/>
+          <p>0 0 4 1 7 2 0 0 3 3 7 2</p>
+        </triangles>
+
+        <!-- +Z -->
+        <triangles count="2" material="Mat_PosZ">
+          <input semantic="VERTEX" source="#Box-vertices" offset="0"/>
+          <input semantic="TEXCOORD" source="#Box-uv" offset="1" set="0"/>
+          <p>4 0 5 1 6 2 4 0 7 3 6 2</p>
+        </triangles>
+
+        <!-- -Z -->
+        <triangles count="2" material="Mat_NegZ">
+          <input semantic="VERTEX" source="#Box-vertices" offset="0"/>
+          <input semantic="TEXCOORD" source="#Box-uv" offset="1" set="0"/>
+          <p>0 0 1 1 2 2 0 0 3 3 2 2</p>
+        </triangles>
+
+      </mesh>
+    </geometry>
+  </library_geometries>
+
+  <library_visual_scenes>
+    <visual_scene id="Scene">
+      <node id="LabeledBoxNode">
+        <instance_geometry url="#Box">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Mat_PosX" target="#Mat_PosX"/>
+              <instance_material symbol="Mat_NegX" target="#Mat_NegX"/>
+              <instance_material symbol="Mat_PosY" target="#Mat_PosY"/>
+              <instance_material symbol="Mat_NegY" target="#Mat_NegY"/>
+              <instance_material symbol="Mat_PosZ" target="#Mat_PosZ"/>
+              <instance_material symbol="Mat_NegZ" target="#Mat_NegZ"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>
