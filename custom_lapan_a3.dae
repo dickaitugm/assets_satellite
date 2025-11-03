@@ -3,14 +3,14 @@
   <asset>
     <contributor>
       <authoring_tool>ChatGPT Custom Generator</authoring_tool>
-      <comments>Colored box with axis labels for orientation debugging</comments>
+      <comments>Axis-labeled box with per-face materials and proper normals (opaque)</comments>
     </contributor>
-    <created>2025-11-03T04:00:00Z</created>
-    <modified>2025-11-03T04:00:00Z</modified>
+    <created>2025-11-03T08:00:00Z</created>
+    <modified>2025-11-03T08:00:00Z</modified>
     <up_axis>Z_UP</up_axis>
   </asset>
 
-  <!-- Materials -->
+  <!-- ===== MATERIALS ===== -->
   <library_materials>
     <material id="Mat-Xpos" name="X+"><instance_effect url="#Fx-Red"/></material>
     <material id="Mat-Xneg" name="X-"><instance_effect url="#Fx-Blue"/></material>
@@ -20,20 +20,98 @@
     <material id="Mat-Zneg" name="Z-"><instance_effect url="#Fx-Gray"/></material>
   </library_materials>
 
-  <!-- Effects -->
+  <!-- ===== EFFECTS (opaque, with normals, no alpha blending) ===== -->
   <library_effects>
-    <effect id="Fx-Red"><profile_COMMON><technique sid="common"><phong><diffuse><color>1 0 0 1</color></diffuse></phong></technique></profile_COMMON></effect>
-    <effect id="Fx-Blue"><profile_COMMON><technique sid="common"><phong><diffuse><color>0 0 1 1</color></diffuse></phong></technique></profile_COMMON></effect>
-    <effect id="Fx-Green"><profile_COMMON><technique sid="common"><phong><diffuse><color>0 1 0 1</color></diffuse></phong></technique></profile_COMMON></effect>
-    <effect id="Fx-Yellow"><profile_COMMON><technique sid="common"><phong><diffuse><color>1 1 0 1</color></diffuse></phong></technique></profile_COMMON></effect>
-    <effect id="Fx-White"><profile_COMMON><technique sid="common"><phong><diffuse><color>1 1 1 1</color></diffuse></phong></technique></profile_COMMON></effect>
-    <effect id="Fx-Gray"><profile_COMMON><technique sid="common"><phong><diffuse><color>0.5 0.5 0.5 1</color></diffuse></phong></technique></profile_COMMON></effect>
+    <effect id="Fx-Red">
+      <profile_COMMON>
+        <technique sid="common">
+          <phong>
+            <diffuse><color>1 0 0 1</color></diffuse>
+            <specular><color>0.1 0.1 0.1 1</color></specular>
+            <shininess><float>30.0</float></shininess>
+            <transparent opaque="A_ONE"><color>1 1 1 1</color></transparent>
+            <transparency><float>1.0</float></transparency>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+
+    <effect id="Fx-Blue">
+      <profile_COMMON>
+        <technique sid="common">
+          <phong>
+            <diffuse><color>0 0 1 1</color></diffuse>
+            <specular><color>0.1 0.1 0.1 1</color></specular>
+            <shininess><float>30.0</float></shininess>
+            <transparent opaque="A_ONE"><color>1 1 1 1</color></transparent>
+            <transparency><float>1.0</float></transparency>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+
+    <effect id="Fx-Green">
+      <profile_COMMON>
+        <technique sid="common">
+          <phong>
+            <diffuse><color>0 1 0 1</color></diffuse>
+            <specular><color>0.1 0.1 0.1 1</color></specular>
+            <shininess><float>30.0</float></shininess>
+            <transparent opaque="A_ONE"><color>1 1 1 1</color></transparent>
+            <transparency><float>1.0</float></transparency>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+
+    <effect id="Fx-Yellow">
+      <profile_COMMON>
+        <technique sid="common">
+          <phong>
+            <diffuse><color>1 1 0 1</color></diffuse>
+            <specular><color>0.1 0.1 0.1 1</color></specular>
+            <shininess><float>30.0</float></shininess>
+            <transparent opaque="A_ONE"><color>1 1 1 1</color></transparent>
+            <transparency><float>1.0</float></transparency>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+
+    <effect id="Fx-White">
+      <profile_COMMON>
+        <technique sid="common">
+          <phong>
+            <diffuse><color>1 1 1 1</color></diffuse>
+            <specular><color>0.1 0.1 0.1 1</color></specular>
+            <shininess><float>30.0</float></shininess>
+            <transparent opaque="A_ONE"><color>1 1 1 1</color></transparent>
+            <transparency><float>1.0</float></transparency>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+
+    <effect id="Fx-Gray">
+      <profile_COMMON>
+        <technique sid="common">
+          <phong>
+            <diffuse><color>0.5 0.5 0.5 1</color></diffuse>
+            <specular><color>0.1 0.1 0.1 1</color></specular>
+            <shininess><float>30.0</float></shininess>
+            <transparent opaque="A_ONE"><color>1 1 1 1</color></transparent>
+            <transparency><float>1.0</float></transparency>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
   </library_effects>
 
-  <!-- Geometry -->
+  <!-- ===== GEOMETRY ===== -->
   <library_geometries>
-    <geometry id="Box-Geom" name="AxisBox">
+    <geometry id="AxisBox-Geom" name="AxisBox">
       <mesh>
+        <!-- Vertex positions -->
         <source id="positions">
           <float_array id="positions-array" count="24">
             -0.5 -0.5 -0.5
@@ -54,6 +132,26 @@
           </technique_common>
         </source>
 
+        <!-- Normals per face -->
+        <source id="normals">
+          <float_array id="normals-array" count="18">
+             1 0 0    <!-- +X -->
+            -1 0 0    <!-- -X -->
+             0 1 0    <!-- +Y -->
+             0 -1 0   <!-- -Y -->
+             0 0 1    <!-- +Z -->
+             0 0 -1   <!-- -Z -->
+          </float_array>
+          <technique_common>
+            <accessor source="#normals-array" count="6" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+
+        <!-- Vertices -->
         <vertices id="verts">
           <input semantic="POSITION" source="#positions"/>
         </vertices>
@@ -61,37 +159,48 @@
         <!-- Faces by material -->
         <triangles material="Mat-Xpos" count="2">
           <input semantic="VERTEX" source="#verts" offset="0"/>
-          <p>3 2 6 3 6 7</p>
+          <input semantic="NORMAL" source="#normals" offset="1"/>
+          <p>3 0 2 0 6 0 3 0 6 0 7 0</p>
         </triangles>
+
         <triangles material="Mat-Xneg" count="2">
           <input semantic="VERTEX" source="#verts" offset="0"/>
-          <p>0 1 5 0 5 4</p>
+          <input semantic="NORMAL" source="#normals" offset="1"/>
+          <p>0 1 1 1 5 1 0 1 5 1 4 1</p>
         </triangles>
+
         <triangles material="Mat-Ypos" count="2">
           <input semantic="VERTEX" source="#verts" offset="0"/>
-          <p>1 2 6 1 6 5</p>
+          <input semantic="NORMAL" source="#normals" offset="1"/>
+          <p>1 2 2 2 6 2 1 2 6 2 5 2</p>
         </triangles>
+
         <triangles material="Mat-Yneg" count="2">
           <input semantic="VERTEX" source="#verts" offset="0"/>
-          <p>0 3 7 0 7 4</p>
+          <input semantic="NORMAL" source="#normals" offset="1"/>
+          <p>0 3 3 3 7 3 0 3 7 3 4 3</p>
         </triangles>
+
         <triangles material="Mat-Zpos" count="2">
           <input semantic="VERTEX" source="#verts" offset="0"/>
-          <p>4 5 6 4 6 7</p>
+          <input semantic="NORMAL" source="#normals" offset="1"/>
+          <p>4 4 5 4 6 4 4 4 6 4 7 4</p>
         </triangles>
+
         <triangles material="Mat-Zneg" count="2">
           <input semantic="VERTEX" source="#verts" offset="0"/>
-          <p>0 1 2 0 2 3</p>
+          <input semantic="NORMAL" source="#normals" offset="1"/>
+          <p>0 5 1 5 2 5 0 5 2 5 3 5</p>
         </triangles>
       </mesh>
     </geometry>
   </library_geometries>
 
-  <!-- Scene -->
+  <!-- ===== SCENE ===== -->
   <library_visual_scenes>
     <visual_scene id="Scene">
       <node id="AxisBoxNode" name="AxisBox">
-        <instance_geometry url="#Box-Geom">
+        <instance_geometry url="#AxisBox-Geom">
           <bind_material>
             <technique_common>
               <instance_material symbol="Mat-Xpos" target="#Mat-Xpos"/>
@@ -104,18 +213,6 @@
           </bind_material>
         </instance_geometry>
       </node>
-
-      <!-- Metadata for visual reference -->
-      <extra>
-        <technique profile="axisLabels">
-          <label side="X+" color="red"/>
-          <label side="X-" color="blue"/>
-          <label side="Y+" color="green"/>
-          <label side="Y-" color="yellow"/>
-          <label side="Z+" color="white"/>
-          <label side="Z-" color="gray"/>
-        </technique>
-      </extra>
     </visual_scene>
   </library_visual_scenes>
 
