@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+    <asset>
+        <contributor>
+            <authoring_tool>modo 801 [Build 77509], Microsoft Windows 7 Service Pack 1 (6.1.7601 Service Pack 1)</authoring_tool>
+            <comments>Plug-in: [Build 77509]; Use Absolute Path: No; Merge Reference Items: No; Save Hidden Items: No; Save Cameras: No; Save Lights: No; Save Locators: Yes; Save Triangles as Triangles: Yes; Order Vertex Maps Alphabetically: Yes; Bake Matrices: No; Save Vertex Normals: Yes; Save UV Texture Coordinates: Yes; Save Vertex Colors: No; Save Vertex Weights: No; Save Animation: Yes; Sample Animation: No; Sample Animation Start: 0; Sample Animation End: 120; Save modo Profile: No; Save Maya Profile: No; Save 3ds Max Profile: No; Formatted Arrays: No;</comments>
+            <source_data>file:///C:/Users/Branden/Creative%20Cloud%20Files/03-2015%20Cesium%20Test%20Models/CesiumBoxTest.lxo</source_data>
+        </contributor>
+        <created>2015-03-04T16:39:37Z</created>
+        <modified>2015-03-04T16:39:37Z</modified>
+        <up_axis>Z_UP</up_axis>
+    </asset>
+    <library_images>
+        <image id="Image-XPlus" name="Image-XPlus">
+            <init_from>xplus.png</init_from>
+        </image>
+        <image id="Image-XMinus" name="Image-XMinus">
+            <init_from>xminus.png</init_from>
+        </image>
+        <image id="Image-YPlus" name="Image-YPlus">
+            <init_from>yplus.png</init_from>
+        </image>
+        <image id="Image-YMinus" name="Image-YMinus">
+            <init_from>yminus.png</init_from>
+        </image>
+        <image id="Image-ZPlus" name="Image-ZPlus">
+            <init_from>zplus.png</init_from>
+        </image>
+        <image id="Image-ZMinus" name="Image-ZMinus">
+            <init_from>zminus.png</init_from>
+        </image>
+    </library_images>
+    <library_materials>
+        <material id="Material-XPlus" name="XPlus">
+            <instance_effect url="#Effect-XPlus" />
+        </material>
+        <material id="Material-XMinus" name="XMinus">
+            <instance_effect url="#Effect-XMinus" />
+        </material>
+        <material id="Material-YPlus" name="YPlus">
+            <instance_effect url="#Effect-YPlus" />
+        </material>
+        <material id="Material-YMinus" name="YMinus">
+            <instance_effect url="#Effect-YMinus" />
+        </material>
+        <material id="Material-ZPlus" name="ZPlus">
+            <instance_effect url="#Effect-ZPlus" />
+        </material>
+        <material id="Material-ZMinus" name="ZMinus">
+            <instance_effect url="#Effect-ZMinus" />
+        </material>
+    </library_materials>
+    <library_effects>
+        <effect id="Effect-XPlus" name="XPlus">
+            <profile_COMMON>
+                <newparam sid="Surface-XPlus">
+                    <surface type="2D">
+                        <init_from>Image-XPlus</init_from>
+                    </surface>
+                </newparam>
+                <newparam sid="Sampler-XPlus">
+                    <sampler2D>
+                        <source>Surface-XPlus</source>
+                    </sampler2D>
+                </newparam>
+                <technique sid="common">
+                    <phong>
+                        <diffuse>
+                            <texture texture="Sampler-XPlus" texcoord="TEXCOORD0" />
+                        </diffuse>
+                        <specular>
+                            <color sid="specular_effect_rgb">0.2 0.2 0.2 1</color>
+                        </specular>
+                        <shininess>
+                            <float sid="specular_effect_rgb">256</float>
+                        </shininess>
+                    </phong>
+                </technique>
+            </profile_COMMON>
+        </effect>
+        <effect id="Effect-XMinus" name="XMinus">
+            <profile_COMMON>
+                <newparam sid="Surface-XMinus">
+                    <surface type="2D">
+                        <init_from>Image-XMinus</init_from>
+                    </surface>
+                </newparam>
+                <newparam sid="Sampler-XMinus">
+                    <sampler2D>
+                        <source>Surface-XMinus</source>
+                    </sampler2D>
+                </newparam>
+                <technique sid="common">
+                    <phong>
+                        <diffuse>
+                            <texture texture="Sampler-XMinus" texcoord="TEXCOORD0" />
+                        </diffuse>
+                        <specular>
+                            <color sid="specular_effect_rgb">0.2 0.2 0.2 1</color>
+                        </specular>
+                        <shininess>
+                            <float sid="specular_effect_rgb">256</float>
+                        </shininess>
+                    </phong>
+                </technique>
+            </profile_COMMON>
+        </effect>
+        <effect id="Effect-YPlus" name="YPlus">
+            <profile_COMMON>
+                <newparam sid="Surface-YPlus">
+                    <surface type="2D">
+                        <init_from>Image-YPlus</init_from>
+                    </surface>
+                </newparam>
+                <newparam sid="Sampler-YPlus">
+                    <sampler2D>
+                        <source>Surface-YPlus</source>
+                    </sampler2D>
+                </newparam>
+                <technique sid="common">
+                    <phong>
+                        <diffuse>
+                            <texture texture="Sampler-YPlus" texcoord="TEXCOORD0" />
+                        </diffuse>
+                        <specular>
+                            <color sid="specular_effect_rgb">0.2 0.2 0.2 1</color>
+                        </specular>
+                        <shininess>
+                            <float sid="specular_effect_rgb">256</float>
+                        </shininess>
+                    </phong>
+                </technique>
+            </profile_COMMON>
+        </effect>
+        <effect id="Effect-YMinus" name="YMinus">
+            <profile_COMMON>
+                <newparam sid="Surface-YMinus">
+                    <surface type="2D">
+                        <init_from>Image-YMinus</init_from>
+                    </surface>
+                </newparam>
+                <newparam sid="Sampler-YMinus">
+                    <sampler2D>
+                        <source>Surface-YMinus</source>
+                    </sampler2D>
+                </newparam>
+                <technique sid="common">
+                    <phong>
+                        <diffuse>
+                            <texture texture="Sampler-YMinus" texcoord="TEXCOORD0" />
+                        </diffuse>
+                        <specular>
+                            <color sid="specular_effect_rgb">0.2 0.2 0.2 1</color>
+                        </specular>
+                        <shininess>
+                            <float sid="specular_effect_rgb">256</float>
+                        </shininess>
+                    </phong>
+                </technique>
+            </profile_COMMON>
+        </effect>
+        <effect id="Effect-ZPlus" name="ZPlus">
+            <profile_COMMON>
+                <newparam sid="Surface-ZPlus">
+                    <surface type="2D">
+                        <init_from>Image-ZPlus</init_from>
+                    </surface>
+                </newparam>
+                <newparam sid="Sampler-ZPlus">
+                    <sampler2D>
+                        <source>Surface-ZPlus</source>
+                    </sampler2D>
+                </newparam>
+                <technique sid="common">
+                    <phong>
+                        <diffuse>
+                            <texture texture="Sampler-ZPlus" texcoord="TEXCOORD0" />
+                        </diffuse>
+                        <specular>
+                            <color sid="specular_effect_rgb">0.2 0.2 0.2 1</color>
+                        </specular>
+                        <shininess>
+                            <float sid="specular_effect_rgb">256</float>
+                        </shininess>
+                    </phong>
+                </technique>
+            </profile_COMMON>
+        </effect>
+        <effect id="Effect-ZMinus" name="ZMinus">
+            <profile_COMMON>
+                <newparam sid="Surface-ZMinus">
+                    <surface type="2D">
+                        <init_from>Image-ZMinus</init_from>
+                    </surface>
+                </newparam>
+                <newparam sid="Sampler-ZMinus">
+                    <sampler2D>
+                        <source>Surface-ZMinus</source>
+                    </sampler2D>
+                </newparam>
+                <technique sid="common">
+                    <phong>
+                        <diffuse>
+                            <texture texture="Sampler-ZMinus" texcoord="TEXCOORD0" />
+                        </diffuse>
+                        <specular>
+                            <color sid="specular_effect_rgb">0.2 0.2 0.2 1</color>
+                        </specular>
+                        <shininess>
+                            <float sid="specular_effect_rgb">256</float>
+                        </shininess>
+                    </phong>
+                </technique>
+            </profile_COMMON>
+        </effect>
+    </library_effects>
+    <library_geometries>
+        <geometry id="Geometry-mesh002" name="Mesh">
+            <mesh>
+                <source id="Geometry-mesh002-positions" name="positions">
+                    <float_array id="Geometry-mesh002-positions-array" count="24">-0.5 -0.5 -0.5 -0.5 0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5 0.5 -0.5 0.5</float_array>
+                    <technique_common>
+                        <accessor count="8" source="#Geometry-mesh002-positions-array" stride="3">
+                            <param name="X" type="float" />
+                            <param name="Y" type="float" />
+                            <param name="Z" type="float" />
+                        </accessor>
+                    </technique_common>
+                </source>
+                <source id="Geometry-mesh002-normals" name="normals">
+                    <float_array id="Geometry-mesh002-normals-array" count="18">0 0 1 0 -1 0 1 0 0 0 1 0 -1 0 0 0 0 -1</float_array>
+                    <technique_common>
+                        <accessor count="6" source="#Geometry-mesh002-normals-array" stride="3">
+                            <param name="X" type="float" />
+                            <param name="Y" type="float" />
+                            <param name="Z" type="float" />
+                        </accessor>
+                    </technique_common>
+                </source>
+                <source id="Geometry-mesh002-Texture" name="Texture">
+                    <float_array id="Geometry-mesh002-Texture-array" count="28">0.25 1 0.25 0.666667 0.5 1 0.5 0.666667 0 0.666667 0.25 0.333333 0 0.333333 0.5 0.333333 0.75 0.666667 0.75 0.333333 1 0.666667 1 0.333333 0.25 0 0.5 0</float_array>
+                    <technique_common>
+                        <accessor count="14" source="#Geometry-mesh002-Texture-array" stride="2">
+                            <param name="S" type="float" />
+                            <param name="T" type="float" />
+                        </accessor>
+                    </technique_common>
+                </source>
+                <vertices id="Geometry-mesh002-vertices">
+                    <input semantic="POSITION" source="#Geometry-mesh002-positions" />
+                </vertices>
+                
+                <triangles count="2" material="Material-ZPlus">
+                    <input semantic="VERTEX" source="#Geometry-mesh002-vertices" offset="0" />
+                    <input semantic="NORMAL" source="#Geometry-mesh002-normals" offset="1" />
+                    <input semantic="TEXCOORD" source="#Geometry-mesh002-Texture" offset="2" set="0" />
+                    <p>4 0 0 7 0 1 5 0 2 6 0 3 5 0 2 7 0 1</p>
+                </triangles>
+                <triangles count="2" material="Material-YMinus">
+                    <input semantic="VERTEX" source="#Geometry-mesh002-vertices" offset="0" />
+                    <input semantic="NORMAL" source="#Geometry-mesh002-normals" offset="1" />
+                    <input semantic="TEXCOORD" source="#Geometry-mesh002-Texture" offset="2" set="0" />
+                    <p>7 1 1 4 1 4 3 1 5 0 1 6 3 1 5 4 1 4</p>
+                </triangles>
+                <triangles count="2" material="Material-XPlus">
+                    <input semantic="VERTEX" source="#Geometry-mesh002-vertices" offset="0" />
+                    <input semantic="NORMAL" source="#Geometry-mesh002-normals" offset="1" />
+                    <input semantic="TEXCOORD" source="#Geometry-mesh002-Texture" offset="2" set="0" />
+                    <p>6 2 3 7 2 1 2 2 7 3 2 5 2 2 7 7 2 1</p>
+                </triangles>
+                <triangles count="2" material="Material-YPlus">
+                    <input semantic="VERTEX" source="#Geometry-mesh002-vertices" offset="0" />
+                    <input semantic="NORMAL" source="#Geometry-mesh002-normals" offset="1" />
+                    <input semantic="TEXCOORD" source="#Geometry-mesh002-Texture" offset="2" set="0" />
+                    <p>5 3 8 6 3 3 1 3 9 2 3 7 1 3 9 6 3 3</p>
+                </triangles>
+                <triangles count="2" material="Material-XMinus">
+                    <input semantic="VERTEX" source="#Geometry-mesh002-vertices" offset="0" />
+                    <input semantic="NORMAL" source="#Geometry-mesh002-normals" offset="1" />
+                    <input semantic="TEXCOORD" source="#Geometry-mesh002-Texture" offset="2" set="0" />
+                    <p>4 4 10 5 4 8 0 4 11 1 4 9 0 4 11 5 4 8</p>
+                </triangles>
+                <triangles count="2" material="Material-ZMinus">
+                    <input semantic="VERTEX" source="#Geometry-mesh002-vertices" offset="0" />
+                    <input semantic="NORMAL" source="#Geometry-mesh002-normals" offset="1" />
+                    <input semantic="TEXCOORD" source="#Geometry-mesh002-Texture" offset="2" set="0" />
+                    <p>0 5 12 1 5 13 3 5 5 2 5 7 3 5 5 1 5 13</p>
+L                </triangles>
+            </mesh>
+        </geometry>
+    </library_geometries>
+    <library_visual_scenes>
+        <visual_scene id="DefaultScene">
+            <node id="Geometry-mesh002Node" name="Mesh" type="NODE">
+                <instance_geometry url="#Geometry-mesh002">
+                    <bind_material>
+                        <technique_common>
+                            <instance_material symbol="Material-XPlus" target="#Material-XPlus" />
+                            <instance_material symbol="Material-XMinus" target="#Material-XMinus" />
+                            <instance_material symbol="Material-YPlus" target="#Material-YPlus" />
+                            <instance_material symbol="Material-YMinus" target="#Material-YMinus" />
+                            <instance_material symbol="Material-ZPlus" target="#Material-ZPlus" />
+                            <instance_material symbol="Material-ZMinus" target="#Material-ZMinus" />
+                        </technique_common>
+                    </bind_material>
+                </instance_geometry>
+            </node>
+        </visual_scene>
+    </library_visual_scenes>
+    <scene>
+        <instance_visual_scene url="#DefaultScene" />
+    </scene>
+</COLLADA>
