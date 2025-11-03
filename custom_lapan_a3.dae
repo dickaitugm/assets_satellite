@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <contributor>
+      <authoring_tool>ChatGPT Custom Generator</authoring_tool>
+      <comments>Colored box with axis labels for orientation debugging</comments>
+    </contributor>
+    <created>2025-11-03T04:00:00Z</created>
+    <modified>2025-11-03T04:00:00Z</modified>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+
+  <!-- Materials -->
+  <library_materials>
+    <material id="Mat-Xpos" name="X+"><instance_effect url="#Fx-Red"/></material>
+    <material id="Mat-Xneg" name="X-"><instance_effect url="#Fx-Blue"/></material>
+    <material id="Mat-Ypos" name="Y+"><instance_effect url="#Fx-Green"/></material>
+    <material id="Mat-Yneg" name="Y-"><instance_effect url="#Fx-Yellow"/></material>
+    <material id="Mat-Zpos" name="Z+"><instance_effect url="#Fx-White"/></material>
+    <material id="Mat-Zneg" name="Z-"><instance_effect url="#Fx-Gray"/></material>
+  </library_materials>
+
+  <!-- Effects -->
+  <library_effects>
+    <effect id="Fx-Red"><profile_COMMON><technique sid="common"><phong><diffuse><color>1 0 0 1</color></diffuse></phong></technique></profile_COMMON></effect>
+    <effect id="Fx-Blue"><profile_COMMON><technique sid="common"><phong><diffuse><color>0 0 1 1</color></diffuse></phong></technique></profile_COMMON></effect>
+    <effect id="Fx-Green"><profile_COMMON><technique sid="common"><phong><diffuse><color>0 1 0 1</color></diffuse></phong></technique></profile_COMMON></effect>
+    <effect id="Fx-Yellow"><profile_COMMON><technique sid="common"><phong><diffuse><color>1 1 0 1</color></diffuse></phong></technique></profile_COMMON></effect>
+    <effect id="Fx-White"><profile_COMMON><technique sid="common"><phong><diffuse><color>1 1 1 1</color></diffuse></phong></technique></profile_COMMON></effect>
+    <effect id="Fx-Gray"><profile_COMMON><technique sid="common"><phong><diffuse><color>0.5 0.5 0.5 1</color></diffuse></phong></technique></profile_COMMON></effect>
+  </library_effects>
+
+  <!-- Geometry -->
+  <library_geometries>
+    <geometry id="Box-Geom" name="AxisBox">
+      <mesh>
+        <source id="positions">
+          <float_array id="positions-array" count="24">
+            -0.5 -0.5 -0.5
+            -0.5  0.5 -0.5
+             0.5  0.5 -0.5
+             0.5 -0.5 -0.5
+            -0.5 -0.5  0.5
+            -0.5  0.5  0.5
+             0.5  0.5  0.5
+             0.5 -0.5  0.5
+          </float_array>
+          <technique_common>
+            <accessor source="#positions-array" count="8" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+
+        <vertices id="verts">
+          <input semantic="POSITION" source="#positions"/>
+        </vertices>
+
+        <!-- Faces by material -->
+        <triangles material="Mat-Xpos" count="2">
+          <input semantic="VERTEX" source="#verts" offset="0"/>
+          <p>3 2 6 3 6 7</p>
+        </triangles>
+        <triangles material="Mat-Xneg" count="2">
+          <input semantic="VERTEX" source="#verts" offset="0"/>
+          <p>0 1 5 0 5 4</p>
+        </triangles>
+        <triangles material="Mat-Ypos" count="2">
+          <input semantic="VERTEX" source="#verts" offset="0"/>
+          <p>1 2 6 1 6 5</p>
+        </triangles>
+        <triangles material="Mat-Yneg" count="2">
+          <input semantic="VERTEX" source="#verts" offset="0"/>
+          <p>0 3 7 0 7 4</p>
+        </triangles>
+        <triangles material="Mat-Zpos" count="2">
+          <input semantic="VERTEX" source="#verts" offset="0"/>
+          <p>4 5 6 4 6 7</p>
+        </triangles>
+        <triangles material="Mat-Zneg" count="2">
+          <input semantic="VERTEX" source="#verts" offset="0"/>
+          <p>0 1 2 0 2 3</p>
+        </triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+
+  <!-- Scene -->
+  <library_visual_scenes>
+    <visual_scene id="Scene">
+      <node id="AxisBoxNode" name="AxisBox">
+        <instance_geometry url="#Box-Geom">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Mat-Xpos" target="#Mat-Xpos"/>
+              <instance_material symbol="Mat-Xneg" target="#Mat-Xneg"/>
+              <instance_material symbol="Mat-Ypos" target="#Mat-Ypos"/>
+              <instance_material symbol="Mat-Yneg" target="#Mat-Yneg"/>
+              <instance_material symbol="Mat-Zpos" target="#Mat-Zpos"/>
+              <instance_material symbol="Mat-Zneg" target="#Mat-Zneg"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+
+      <!-- Metadata for visual reference -->
+      <extra>
+        <technique profile="axisLabels">
+          <label side="X+" color="red"/>
+          <label side="X-" color="blue"/>
+          <label side="Y+" color="green"/>
+          <label side="Y-" color="yellow"/>
+          <label side="Z+" color="white"/>
+          <label side="Z-" color="gray"/>
+        </technique>
+      </extra>
+    </visual_scene>
+  </library_visual_scenes>
+
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>
